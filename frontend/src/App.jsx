@@ -147,7 +147,7 @@ export default function App() {
         <div className="footer-inner">
           <p className="footer-quote">"Một giọt máu cho đi — Một cuộc đời ở lại"</p>
           <p className="footer-copyright">
-            CLB Sinh Nhật Hồng - HMCN • Trực thuộc Trường Đại học Khoa học - Đại học Huế
+            CLB Sinh Nhật Hồng Tuổi 18 - HMCN • Trực thuộc Trường Đại học Khoa học - Đại học Huế
           </p>
         </div>
       </footer>

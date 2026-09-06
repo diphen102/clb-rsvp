@@ -37,7 +37,7 @@ export default function OpeningCurtain({ onOpen }) {
 
           <p className="curtain-eyebrow">Trân trọng kính mời</p>
           <h2 className="curtain-title">Lễ Kỷ Niệm 20 Năm</h2>
-          <p className="curtain-club-name">CLB Sinh Nhật Hồng - HMCN</p>
+          <p className="curtain-club-name">CLB Sinh Nhật Hồng Tuổi 18 - HMCN</p>
           <div className="curtain-divider" />
           <p className="curtain-date">2006 — 2026</p>
 
