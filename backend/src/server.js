@@ -6,19 +6,43 @@ import rsvpRoutes from './routes/rsvp.routes.js';
 dotenv.config();
 
 const app = express();
+// Railway sẽ tự động cấp biến process.env.PORT
 const PORT = process.env.PORT || 4000;
-const ALLOWED_ORIGIN = process.env.FRONTEND_ORIGIN || 'http://localhost:5173';
 
-app.use(cors({ origin: ALLOWED_ORIGIN }));
+// Cấu hình CORS linh hoạt cho phép tất cả các domain Vercel và Localhost
+app.use(cors({
+  origin: function (origin, callback) {
+    // Cho phép các request không có origin (như Postman hoặc Server-to-Server)
+    if (!origin) return callback(null, true);
+
+    // Cho phép tất cả các domain kết thúc bằng .vercel.app hoặc localhost
+    if (
+      origin.endsWith('.vercel.app') || 
+      origin.startsWith('http://localhost')
+    ) {
+      return callback(null, true);
+    }
+
+    return callback(new Error('Blocked by CORS'));
+  },
+  credentials: true
+}));
+
 app.use(express.json());
 
-// Health check - dùng để verify deploy trên Render thành công
+// Root route - Giúp kiểm tra trực tiếp qua trình duyệt không bị lỗi "Cannot GET /"
+app.get('/', (req, res) => {
+  res.send('Backend Server is running successfully!');
+});
+
+// Health check endpoint
 app.get('/health', (req, res) => {
   res.json({ status: 'ok' });
 });
 
 app.use('/api/rsvp', rsvpRoutes);
 
-app.listen(PORT, () => {
-  console.log(`Backend đang chạy tại http://localhost:${PORT}`);
+// Bắt buộc thêm '0.0.0.0' để Server lắng nghe các request từ mạng bên ngoài trên Railway/Render
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Backend đang chạy trên port ${PORT}`);
 });
