@@ -1,25 +1,53 @@
-﻿import React, { useState } from 'react';
-import { Heart, Send, Check } from 'lucide-react';
+﻿import React, { useState, useEffect } from 'react';
+import { Heart, Send } from 'lucide-react';
+
+const API_URL = 'https://clb-rsvp-production.up.railway.app/api/likes'; // Thay bằng route API của bạn
 
 export default function BottomToolbar() {
-  const [likeCount, setLikeCount] = useState(128);
+  const [likeCount, setLikeCount] = useState(511);
   const [floatingHearts, setFloatingHearts] = useState([]);
-  const [copied, setCopied] = useState(false);
 
-  function handleLike(e) {
+  // 1. Tải số tim từ Server khi trang web load
+  useEffect(() => {
+    async function fetchLikes() {
+      try {
+        const res = await fetch(API_URL);
+        const data = await res.json();
+        // Nếu số tim từ server > 511 thì lấy số lớn hơn, ngược lại giữ tối thiểu 511
+        if (data.count && data.count > 511) {
+          setLikeCount(data.count);
+        }
+      } catch (err) {
+        console.error('Không thể tải lượt tim:', err);
+      }
+    }
+    fetchLikes();
+  }, []);
+
+  // 2. Thả tim & Đồng bộ lên Server
+  async function handleLike(e) {
     e.stopPropagation();
+    
+    // Tăng lượt tim ở giao diện trước cho mượt (Optimistic UI)
     setLikeCount((prev) => prev + 1);
 
     // Bắn chùm tim bay lên màn hình
     const newHeart = {
       id: Date.now() + Math.random(),
-      left: Math.random() * 40 - 20, // lệch trái phải
+      left: Math.random() * 40 - 20,
     };
     setFloatingHearts((prev) => [...prev.slice(-10), newHeart]);
 
     setTimeout(() => {
       setFloatingHearts((prev) => prev.filter((h) => h.id !== newHeart.id));
     }, 1500);
+
+    // Gửi request cộng tim lên Backend
+    try {
+      await fetch(API_URL, { method: 'POST' });
+    } catch (err) {
+      console.error('Không thể lưu lượt tim lên server:', err);
+    }
   }
 
   function handleScrollToRsvp() {
@@ -32,7 +60,6 @@ export default function BottomToolbar() {
   return (
     <div className="bottom-toolbar-container">
       <div className="bottom-toolbar">
-        {/* Nút Thả tim tương tác */}
         <button
           type="button"
           className="toolbar-like-btn"
@@ -44,7 +71,6 @@ export default function BottomToolbar() {
           </div>
           <span className="like-counter">{likeCount}</span>
 
-          {/* Các trái tim bay lên khi click */}
           {floatingHearts.map((h) => (
             <span
               key={h.id}
@@ -56,7 +82,6 @@ export default function BottomToolbar() {
           ))}
         </button>
 
-        {/* Nút Nhảy xuống form RSVP */}
         <button
           type="button"
           className="toolbar-rsvp-btn"

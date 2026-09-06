@@ -131,7 +131,7 @@ export default function RSVPForm({ onSuccess }) {
 
           <div className="envelope-warm-quote">
             <Heart size={14} className="quote-heart" />
-            <span>"Một giọt máu cho đi — Một cuộc đời ở lại"</span>
+            <span>"Một giọt máu cho đi - Một cuộc đời ở lại"</span>
           </div>
         </div>
 

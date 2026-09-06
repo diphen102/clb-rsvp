@@ -1,6 +1,6 @@
 import rateLimit from 'express-rate-limit';
 
-// Giới hạn 5 lần submit / 15 phút / IP — đủ chặn spam mà không ảnh hưởng người dùng thật
+// Giới hạn 5 lần submit / 15 phút / IP - đủ chặn spam mà không ảnh hưởng người dùng thật
 export const rsvpRateLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 5,

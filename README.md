@@ -1,4 +1,4 @@
-# CLB RSVP — Trang xác nhận tham gia lễ kỷ niệm 20 năm
+# CLB RSVP - Trang xác nhận tham gia lễ kỷ niệm 20 năm
 
 ## Cấu trúc
 
@@ -53,7 +53,7 @@ npm run dev
 - [x] Backend boot được, có health check endpoint
 - [x] Frontend render được, có layout cơ bản (hero + content)
 - [x] Endpoint `POST /api/rsvp` + validate (họ tên, SĐT, email, số lượng) + rate limit
-- [x] Tích hợp Google Sheets API (service account) — cần bạn tự tạo Service Account để có credential thật
+- [x] Tích hợp Google Sheets API (service account) - cần bạn tự tạo Service Account để có credential thật
 - [x] Form RSVP (frontend) + validate + hiển thị lỗi theo từng field
 - [x] Trang cảm ơn sau submit
 - [x] Ảnh nền hero (dùng ảnh CLB đã có)
@@ -65,7 +65,7 @@ npm run dev
 
 ## ⚠️ Cần bạn cập nhật trước khi dùng thật
 
-- `frontend/src/config/eventConfig.js` — **ngày giờ và địa điểm sự kiện đang là placeholder**,
+- `frontend/src/config/eventConfig.js` - **ngày giờ và địa điểm sự kiện đang là placeholder**,
   countdown sẽ đếm sai nếu không sửa. Sửa `eventDate` (định dạng ISO,
   vd `'2026-10-24T17:00:00+07:00'`), `venueName`, `venueAddress`.
 
@@ -85,11 +85,11 @@ npm run dev
 
 - `GOOGLE_SHEET_ID` trong `.env.example` đã điền sẵn theo Sheet bạn cung cấp. Nhớ tạo tab tên `RSVP`
   trong sheet đó (xem bước 5 ở trên) và share Editor cho email service account.
-- Ảnh nền hero: `frontend/src/assets/club-hero.jpg` — hiện đang dùng ảnh chụp tập thể CLB (lễ 19 năm).
+- Ảnh nền hero: `frontend/src/assets/club-hero.jpg` - hiện đang dùng ảnh chụp tập thể CLB (lễ 19 năm).
   Nếu có ảnh khác (không dính chữ "19 năm", hoặc ảnh riêng logo/backdrop 20 năm), gửi để thay.
 - Logo: `frontend/src/assets/logo.jpg`.
 - Gallery: `frontend/src/assets/gallery/` (26 ảnh gốc, đã resize/nén bằng ImageMagick).
-  `frontend/src/data/galleryImages.js` khai báo toàn bộ 26 ảnh — nhưng hiện chỉ 9 ảnh
+  `frontend/src/data/galleryImages.js` khai báo toàn bộ 26 ảnh - nhưng hiện chỉ 9 ảnh
   (`PhotoStory.jsx`, lọc mỗi 3 ảnh lấy 1) được render thành section full-bleed để
   trang không quá dài. Muốn đổi ảnh nào lên section, hoặc đổi số lượng section,
   sửa logic filter trong `PhotoStory.jsx`.

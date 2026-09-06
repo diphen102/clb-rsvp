@@ -17,7 +17,7 @@ export default function Countdown() {
   if (isPast) {
     return (
       <div className="cinelove-countdown-box">
-        <p className="countdown-ended">Sự kiện đã diễn ra — Cảm ơn bạn đã luôn đồng hành cùng CLB Sinh Nhật Hồng!</p>
+        <p className="countdown-ended">Sự kiện đã diễn ra - Cảm ơn bạn đã luôn đồng hành cùng CLB Sinh Nhật Hồng!</p>
       </div>
     );
   }

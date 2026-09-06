@@ -60,7 +60,7 @@ export default function App() {
               </div>
 
               <p className="hero-tagline">
-                Hai thập kỷ nối dài nhịp đập yêu thương — Tri ân những trái tim tình nguyện không mệt mỏi
+                Hai thập kỷ nối dài nhịp đập yêu thương - Tri ân những trái tim tình nguyện không mệt mỏi
               </p>
 
               {/* Thẻ ngày giờ & địa điểm */}
@@ -112,7 +112,7 @@ export default function App() {
                   <img src={heroImg} alt="Kỷ niệm 20 năm CLB" className="hero-arch-img" />
                   <div className="hero-arch-overlay" />
                   <div className="hero-arch-badge">
-                    <span>2006 — 2026</span>
+                    <span>2006 - 2026</span>
                   </div>
                 </div>
               </div>
@@ -145,7 +145,7 @@ export default function App() {
       {/* FOOTER */}
       <footer className="cinelove-footer">
         <div className="footer-inner">
-          <p className="footer-quote">"Một giọt máu cho đi — Một cuộc đời ở lại"</p>
+          <p className="footer-quote">"Một giọt máu cho đi - Một cuộc đời ở lại"</p>
           <p className="footer-copyright">
             CLB Sinh Nhật Hồng Tuổi 18 - HMCN • Trực thuộc Trường Đại học Khoa học - Đại học Huế
           </p>

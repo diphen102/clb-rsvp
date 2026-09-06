@@ -25,7 +25,7 @@ export default function ThankYou({ onReset }) {
       </p>
 
       <div className="thankyou-quote">
-        <p>"Một giọt máu cho đi — Một cuộc đời ở lại"</p>
+        <p>"Một giọt máu cho đi - Một cuộc đời ở lại"</p>
       </div>
 
       {onReset && (

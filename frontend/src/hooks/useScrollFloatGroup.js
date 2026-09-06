@@ -6,7 +6,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
  * to/rõ, càng ra rìa càng nhỏ/mờ. Tạo cảm giác "bay bổng" khi cuộn.
  *
  * Dùng 1 scroll listener dùng chung (throttle bằng rAF) cho cả nhóm,
- * thay vì mỗi phần tử tự chạy vòng lặp riêng — đỡ tốn hiệu năng hơn
+ * thay vì mỗi phần tử tự chạy vòng lặp riêng - đỡ tốn hiệu năng hơn
  * khi gallery có nhiều ảnh.
  */
 export function useScrollFloatGroup(count, { minScale = 0.8, maxScale = 1, minOpacity = 0.5 } = {}) {

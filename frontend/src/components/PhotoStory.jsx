@@ -109,7 +109,7 @@ export default function PhotoStory() {
       <div className="marquee-album-container">
         <div className="marquee-album-title">
           <Sparkles size={16} strokeWidth={1.8} />
-          <span>Cuộn phim ký ức — Trọn vẹn 31 khoảnh khắc hoạt động</span>
+          <span>Cuộn phim ký ức - Trọn vẹn 31 khoảnh khắc hoạt động</span>
         </div>
 
         <div className="marquee-track-wrapper">
