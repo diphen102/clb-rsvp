@@ -1,36 +1,39 @@
 ﻿import React, { useState, useEffect } from 'react';
 import { Heart, Send } from 'lucide-react';
 
-const API_LIKES_URL = 'https://clb-rsvp-production.up.railway.app/api/likes';
+const API_LIKES_URL = 'https://clb-rsvp-production.up.railway.app/api/rsvp/likes';
 
 export default function BottomToolbar() {
   const [likeCount, setLikeCount] = useState(511);
   const [floatingHearts, setFloatingHearts] = useState([]);
 
-  // 1. Lấy tổng số tim thực tế từ Google Sheets khi trang load (F5)
+  // Lấy lượt tim từ Google Sheets khi F5 hoặc mở trang
   useEffect(() => {
+    let isMounted = true;
     async function fetchLikes() {
       try {
         const res = await fetch(API_LIKES_URL);
         const data = await res.json();
-        if (data.count && data.count >= 511) {
-          setLikeCount(data.count);
+        // Nếu lấy được số tim và số đó >= 511 thì cập nhật
+        if (isMounted && data.count && Number(data.count) >= 511) {
+          setLikeCount(Number(data.count));
         }
       } catch (err) {
-        console.error('Không thể lấy lượt tim từ server:', err);
+        console.error('Không thể lấy lượt tim từ Google Sheets:', err);
       }
     }
     fetchLikes();
+    return () => { isMounted = false; };
   }, []);
 
-  // 2. Thả tim: Tăng tức thì trên UI và gửi request cộng tim lên Server
+  // Xử lý bấm thả tim
   async function handleLike(e) {
     e.stopPropagation();
 
-    // Tăng UI trước giúp thao tác mượt mà
+    // 1. Tăng giao diện ngay lập tức
     setLikeCount((prev) => prev + 1);
 
-    // Hiệu ứng tim bay
+    // 2. Hiệu ứng tim bay
     const newHeart = {
       id: Date.now() + Math.random(),
       left: Math.random() * 40 - 20,
@@ -41,11 +44,16 @@ export default function BottomToolbar() {
       setFloatingHearts((prev) => prev.filter((h) => h.id !== newHeart.id));
     }, 1500);
 
-    // Đồng bộ cộng tim lên Google Sheets
+    // 3. Gửi POST request lên Backend để tăng 1 tim trong Google Sheets
     try {
-      await fetch(API_LIKES_URL, { method: 'POST' });
+      const res = await fetch(API_LIKES_URL, { method: 'POST' });
+      const data = await res.json();
+      // Đồng bộ lại con số chính xác từ Google Sheets trả về
+      if (data.count) {
+        setLikeCount(Number(data.count));
+      }
     } catch (err) {
-      console.error('Lỗi lưu lượt tim:', err);
+      console.error('Lỗi khi gửi tim lên server:', err);
     }
   }
 
