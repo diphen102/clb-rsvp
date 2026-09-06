@@ -15,7 +15,7 @@ export default function Header() {
         <div className="header-brand" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
           <img src={logo} alt="Logo CLB" className="header-logo" />
           <div className="header-titles">
-            <span className="header-main-title">Sinh Nhật Hồng - HMCN</span>
+            <span className="header-main-title">Sinh Nhật Hồng Tuổi 18 - HMCN</span>
             <span className="header-sub-title">20 Năm Trao Giọt Máu Hồng</span>
           </div>
         </div>

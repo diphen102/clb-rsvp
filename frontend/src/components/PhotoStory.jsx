@@ -101,7 +101,7 @@ export default function PhotoStory() {
           <Heart size={14} className="divider-icon" />
         </div>
         <p className="cinelove-desc">
-          Từng nụ cười, từng giọt máu sẻ chia là từng viên gạch xây nên thanh xuân rực rỡ của CLB Sinh Nhật Hồng
+          Từng nụ cười, từng giọt máu sẻ chia là từng viên gạch xây nên thanh xuân rực rỡ của CLB Sinh Nhật Hồng Tuổi 18
         </p>
       </div>
 
