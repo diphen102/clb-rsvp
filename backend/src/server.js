@@ -6,6 +6,11 @@ import rsvpRoutes from './routes/rsvp.routes.js';
 dotenv.config();
 
 const app = express();
+
+// SỬA LỖI EXPRESS-RATE-LIMIT:
+// Tin tưởng Proxy của Railway để lấy đúng IP client từ header X-Forwarded-For
+app.set('trust proxy', 1);
+
 // Railway sẽ tự động cấp biến process.env.PORT
 const PORT = process.env.PORT || 4000;
 
