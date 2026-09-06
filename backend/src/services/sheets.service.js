@@ -1,6 +1,6 @@
 import getSheetsClient from '../config/googleSheets.js';
 
-const SHEET_RANGE = "RSVP!A:F"; // tab tên "RSVP", cột A-F: timestamp, họ tên, SĐT, email, tham dự, số lượng
+const SHEET_RANGE = "'RSVP'!A:F"; // Bọc thêm dấu nháy đơn 'RSVP' để tránh lỗi range khi tên sheet có khoảng trắng
 
 /**
  * Ghi 1 dòng RSVP mới vào cuối sheet.
@@ -10,7 +10,13 @@ export async function appendRsvpRow(data) {
   const sheets = getSheetsClient();
   const spreadsheetId = process.env.GOOGLE_SHEET_ID;
 
-  const timestamp = new Date().toISOString();
+  // Định dạng ngày giờ Việt Nam: DD/MM/YYYY HH:mm:ss
+  const now = new Date();
+  const timestamp = now.toLocaleString('vi-VN', { 
+    timeZone: 'Asia/Ho_Chi_Minh',
+    hour12: false 
+  }); 
+
   const attendingLabel = data.attending === 'yes' ? 'Tham dự' : 'Không tham dự';
   const guestCount = data.attending === 'yes' ? data.guestCount : 0;
 

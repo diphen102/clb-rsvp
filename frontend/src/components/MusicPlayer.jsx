@@ -61,7 +61,7 @@ export default function MusicPlayer({ autoPlayTrigger }) {
       }
 
       playNextNote();
-      intervalRef.current = setInterval(playNextNote, 600);
+      intervalRef.current = setInterval(playNextNote, 360);
       setIsPlaying(true);
     } catch (e) {
       console.warn('Web Audio error:', e);
