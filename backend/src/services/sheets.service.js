@@ -1,6 +1,6 @@
 import getSheetsClient from '../config/googleSheets.js';
 
-const SHEET_RANGE = 'RSVP!A:F'; // tab tên "RSVP", cột A-F: timestamp, họ tên, SĐT, email, tham dự, số lượng
+const SHEET_RANGE = "RSVP!A:F"; // tab tên "RSVP", cột A-F: timestamp, họ tên, SĐT, email, tham dự, số lượng
 
 /**
  * Ghi 1 dòng RSVP mới vào cuối sheet.

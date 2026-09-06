@@ -20,7 +20,7 @@ export default function ThankYou({ onReset }) {
       </div>
 
       <p className="thankyou-message">
-        CLB Sinh Nhật Hồng - HMCN đã ghi nhận phản hồi của quý anh chị và các bạn tình nguyện viên.
+        CLB Sinh Nhật Hồng Tuổi 18 - HMCN đã ghi nhận phản hồi của quý anh chị và các bạn tình nguyện viên.
         Sự quan tâm và tình cảm gắn bó của bạn là động lực to lớn cho hành trình 20 năm tiếp theo của chúng tôi.
       </p>
 
