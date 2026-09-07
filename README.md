@@ -36,7 +36,6 @@ cp .env.example .env
 npm install
 npm run dev
 ```
-→ http://localhost:4000/health phải trả về `{ "status": "ok" }`
 
 **Frontend:**
 ```
@@ -45,7 +44,6 @@ cp .env.example .env
 npm install
 npm run dev
 ```
-→ http://localhost:5173
 
 ## Trạng thái hiện tại
 
@@ -61,7 +59,7 @@ npm run dev
 - [x] Redesign tối giản kiểu Swiss/spa cao cấp: 1 màu accent (đỏ trầm) trên nền
   trung tính, spacing scale 8px nhất quán, icon Lucide React thay cho mọi ký hiệu,
   bỏ shadow/trang trí rườm rà
-- [ ] Deploy Vercel + Render
+- [X] Deploy Vercel + Render
 
 ## ⚠️ Cần bạn cập nhật trước khi dùng thật
 
