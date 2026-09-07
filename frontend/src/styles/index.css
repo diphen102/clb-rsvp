@@ -716,6 +716,9 @@ body {
   padding: 6px 18px;
   border-radius: 20px;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  white-space: nowrap;
+  width: max-content;
+
 }
 
 .hero-arch-badge span {
