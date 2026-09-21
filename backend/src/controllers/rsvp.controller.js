@@ -1,10 +1,10 @@
 import { appendRsvpRow } from '../services/sheets.service.js';
 
 export async function submitRsvp(req, res) {
-  const { fullName, phone, email, attending, guestCount } = req.body;
+  const { fullName, phone, email, attending, guestCount, term } = req.body;
 
   try {
-    await appendRsvpRow({ fullName, phone, email, attending, guestCount });
+    await appendRsvpRow({ fullName, phone, email, attending, guestCount, term });
     return res.status(201).json({ message: 'Xác nhận tham gia thành công' });
   } catch (err) {
     console.error('Lỗi khi ghi vào Google Sheets:', err.message);

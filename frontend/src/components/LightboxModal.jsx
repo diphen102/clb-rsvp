@@ -1,4 +1,4 @@
-﻿import React, { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export default function LightboxModal({ image, total, currentIndex, onClose, onPrev, onNext }) {
@@ -28,7 +28,13 @@ export default function LightboxModal({ image, total, currentIndex, onClose, onP
         )}
 
         <div className="lightbox-image-wrap">
-          <img src={image.src} alt={image.alt || 'Khoảnh khắc CLB'} className="lightbox-img" />
+          <img
+            src={image.src}
+            alt={image.alt || 'Khoảnh khắc CLB'}
+            className="lightbox-img"
+            style={{ touchAction: 'pinch-zoom' }}
+          />
+
           <div className="lightbox-info">
             <p className="lightbox-caption">{image.caption || image.alt}</p>
             {total && <span className="lightbox-counter">{currentIndex + 1} / {total}</span>}

@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import galleryImages from '../data/galleryImages.js';
 import LightboxModal from './LightboxModal.jsx';
 import { Sparkles, Heart, Eye } from 'lucide-react';
@@ -8,15 +8,15 @@ const FEATURED_MOMENTS = [
     imageIndex: 26, // gallery-27: Lễ kỷ niệm 18 tuổi
     tag: 'Dấu ấn',
     title: 'Lễ Kỷ Niệm Truyền Thống',
-    caption: 'Khoảnh khắc thắp nến và tiếp lửa nhiệt huyết tuổi 20',
+    caption: 'Khoảnh khắc thắp nến và tiếp lửa nhiệt huyết tuổi 19',
     tilt: 'tilt-left',
     shape: 'arch-shape',
   },
   {
     imageIndex: 29, // gallery-30: Ngày hội Hiến máu
     tag: 'Sứ mệnh',
-    title: 'Mỗi Giọt Máu Cho Đi',
-    caption: 'Một niềm hy vọng và cuộc đời được tiếp nối',
+    title: 'Mỗi Giọt Máu Trao Đi',
+    caption: 'Là một lần nữa mang đến những hy vọng sống, thêm những cuộc đời được tiếp nối',
     tilt: 'tilt-right',
     shape: 'rounded-shape',
   },
@@ -24,7 +24,7 @@ const FEATURED_MOMENTS = [
     imageIndex: 27, // gallery-28: Xuân gắn kết
     tag: 'Thiện nguyện',
     title: 'Xuân Gắn Kết - Tết Sẻ Chia',
-    caption: 'Hành trình mang hơi ấm đến các điểm trường vùng khó',
+    caption: 'Hành trình mang hơi ấm của những trái tim giàu tình thương đến với các mệ các bà; đến với các em nhỏ ở điểm trường vùng cao',
     tilt: 'tilt-left',
     shape: 'arch-shape',
   },
@@ -32,7 +32,7 @@ const FEATURED_MOMENTS = [
     imageIndex: 30, // gallery-31: Trẻ thơ
     tag: 'Đồng hành',
     title: 'Kết Nối Trái Tim Trẻ Thơ',
-    caption: 'Tay trao tay những nụ cười và sự sẻ chia ấm áp',
+    caption: 'Đồng hành là sự gắn bó lâu dài để trao đi những hơi ấm, vun đắp, tiếp nối sẻ chia, mang đến những ý nghĩa mới',
     tilt: 'tilt-right',
     shape: 'polaroid-shape',
   },
@@ -47,16 +47,16 @@ const FEATURED_MOMENTS = [
   {
     imageIndex: 0, // gallery-01
     tag: 'Khởi đầu',
-    title: 'Những Bước Chân Tình Nguyện',
-    caption: 'Dấu chân thanh xuân in trên khắp mọi nẻo đường',
+    title: 'Dấu Ấn Tuổi 18',
+    caption: 'Từ những bước chân đầu tiên xây dựng lý tưởng, khát vọng bằng sự nhiệt huyết của tuổi trẻ',
     tilt: 'tilt-right',
     shape: 'arch-shape',
   },
   {
     imageIndex: 4, // gallery-05
     tag: 'Gắn kết',
-    title: 'Mái Nhà Chung Hồng',
-    caption: 'Nơi thanh xuân rực rỡ và đong đầy nhiệt huyết tuổi trẻ',
+    title: 'Mái Nhà Chung Giọt Hồng',
+    caption: 'Mái nhà chung giọt hồng - Nơi những con tim hòa vào nhịp đập chung của sự yêu thương cùng nhau viết tiếp những hành trình mới',
     tilt: 'tilt-left',
     shape: 'polaroid-shape',
   },
@@ -64,7 +64,7 @@ const FEATURED_MOMENTS = [
     imageIndex: 11, // gallery-12
     tag: 'Tự hào',
     title: 'Tiếp Nối Ngọn Lửa 20 Năm',
-    caption: '20 năm một chặng đường bền bỉ cống hiến vì cộng đồng',
+    caption: 'Hai thập kỉ cống hiến, lan tỏa tinh thần nhân văn CLB đã và đang tiếp tục thắp sáng ngọn lửa nhiệt huyết cho những thế hệ sau',
     tilt: 'tilt-right',
     shape: 'arch-shape',
   },
@@ -101,44 +101,55 @@ export default function PhotoStory() {
           <Heart size={14} className="divider-icon" />
         </div>
         <p className="cinelove-desc">
-          Từng nụ cười, từng giọt máu sẻ chia là từng viên gạch xây nên thanh xuân rực rỡ của CLB Sinh Nhật Hồng Tuổi 18
+          Trao đi từng giọt máu, nhận lại những nụ cười. Mỗi hành trình là một mảnh ghép kí ức để viết nên câu chuyện 20 năm hình thành và phát triển rực rỡ của 
+          CLB Sinh nhật hồng tuổi 18 – Hiến máu cứu người
         </p>
       </div>
 
-      {/* Dòng Chảy Băng Chuyền Ảnh Vô Tận (Infinite Marquee) */}
-      <div className="marquee-album-container">
-        <div className="marquee-album-title">
-          <Sparkles size={16} strokeWidth={1.8} />
-          <span>Cuộn phim ký ức - Trọn vẹn 31 khoảnh khắc hoạt động</span>
+      {/* Cuộn Phim Ký Ức — Film Strip */}
+      <div className="film-strip-section">
+        {/* Header */}
+        <div className="film-strip-header">
+          <Sparkles size={16} strokeWidth={1.8} className="film-header-icon" />
+          <span className="film-header-label">Cuộn phim ký ức</span>
+          <span className="film-header-count">khoảnh khắc đáng nhớ</span>
         </div>
 
-        <div className="marquee-track-wrapper">
-          <div className="marquee-track track-left">
-            {[...row1, ...row1].map((img, idx) => (
-              <div
-                key={`r1-${idx}`}
-                className="marquee-item"
-                onClick={() => openLightbox(idx % row1.length)}
-                title="Bấm để phóng to ảnh"
-              >
-                <img src={img.src} alt={img.alt} loading="lazy" />
-              </div>
-            ))}
+        {/* Dải phim 1 — cuộn trái */}
+        <div className="film-strip-band">
+          <div className="marquee-track-wrapper">
+            <div className="marquee-track track-left">
+              {[...row1, ...row1].map((img, idx) => (
+                <div
+                  key={`r1-${idx}`}
+                  className="marquee-item film-frame"
+                  onClick={() => openLightbox(idx % row1.length)}
+                  title="Bấm để xem ảnh đầy đủ"
+                >
+                  <img src={img.src} alt={img.alt} loading="lazy" />
+                  <div className="film-frame-number">{String((idx % row1.length) + 1).padStart(2, '0')}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
-        <div className="marquee-track-wrapper">
-          <div className="marquee-track track-right">
-            {[...row2, ...row2].map((img, idx) => (
-              <div
-                key={`r2-${idx}`}
-                className="marquee-item"
-                onClick={() => openLightbox(16 + (idx % row2.length))}
-                title="Bấm để phóng to ảnh"
-              >
-                <img src={img.src} alt={img.alt} loading="lazy" />
-              </div>
-            ))}
+        {/* Dải phim 2 — cuộn phải */}
+        <div className="film-strip-band film-band-2">
+          <div className="marquee-track-wrapper">
+            <div className="marquee-track track-right">
+              {[...row2, ...row2].map((img, idx) => (
+                <div
+                  key={`r2-${idx}`}
+                  className="marquee-item film-frame"
+                  onClick={() => openLightbox(16 + (idx % row2.length))}
+                  title="Bấm để xem ảnh đầy đủ"
+                >
+                  <img src={img.src} alt={img.alt} loading="lazy" />
+                  <div className="film-frame-number">{String(16 + (idx % row2.length) + 1).padStart(2, '0')}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

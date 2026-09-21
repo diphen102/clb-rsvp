@@ -23,6 +23,12 @@ export const rsvpValidationRules = [
     .if(body('attending').equals('yes'))
     .isInt({ min: 1, max: 10 })
     .withMessage('Số lượng người tham dự phải từ 1 đến 10'),
+
+  body('term')
+    .optional({ values: 'falsy' })
+    .trim()
+    .isLength({ max: 100 })
+    .withMessage('Thông tin nhiệm kì tối đa 100 ký tự'),
 ];
 
 export function handleValidationErrors(req, res, next) {

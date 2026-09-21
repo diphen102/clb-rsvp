@@ -1,5 +1,5 @@
 ﻿import React, { useState } from 'react';
-import { User, Phone, Mail, Users, Send, MapPin, Calendar, Heart } from 'lucide-react';
+import { User, Phone, Mail, Users, Send, MapPin, Calendar, Heart, Award } from 'lucide-react';
 import { submitRsvp } from '../api/rsvp.js';
 import logo from '../assets/logo.jpg';
 
@@ -7,6 +7,7 @@ const INITIAL_FORM = {
   fullName: '',
   phone: '',
   email: '',
+  term: '',
   attending: 'yes',
   guestCount: 1,
 };
@@ -82,6 +83,7 @@ export default function RSVPForm({ onSuccess }) {
         fullName: form.fullName.trim(),
         phone: form.phone.trim(),
         email: form.email.trim(),
+        term: form.term.trim(),
         attending: form.attending,
         ...(form.attending === 'yes' ? { guestCount: Number(form.guestCount) } : {}),
       };
@@ -115,7 +117,7 @@ export default function RSVPForm({ onSuccess }) {
           <h2 className="envelope-title">Xác Nhận Tham Dự</h2>
           <div className="envelope-divider" />
           <p className="envelope-subtitle">
-            Sự hiện diện của quý anh chị, các bạn tình nguyện viên và quý đại biểu là niềm vinh hạnh to lớn cho Lễ kỷ niệm 20 năm thành lập CLB.
+            Sự hiện diện của quý đại biểu, quý anh chị và các bạn tình nguyện viên là niềm vinh hạnh to lớn cho Lễ kỷ niệm 20 năm thành lập CLB.
           </p>
 
           <div className="envelope-event-highlights">
@@ -189,6 +191,22 @@ export default function RSVPForm({ onSuccess }) {
                 </div>
                 {fieldErrors.email && <span className="envelope-error">{fieldErrors.email}</span>}
               </div>
+            </div>
+
+            <div className="envelope-field">
+              <label htmlFor="term">Nhiệm kì / Thế hệ thành viên (chức vụ nếu có)</label>
+              <div className={`envelope-input-wrap ${fieldErrors.term ? 'has-error' : ''}`}>
+                <Award size={17} strokeWidth={1.75} />
+                <input
+                  id="term"
+                  name="term"
+                  type="text"
+                  placeholder="VD: Khóa 2018 - 2022, Chủ nhiệm Khóa 15, v.v."
+                  value={form.term}
+                  onChange={handleChange}
+                />
+              </div>
+              {fieldErrors.term && <span className="envelope-error">{fieldErrors.term}</span>}
             </div>
 
             <div className="envelope-field">

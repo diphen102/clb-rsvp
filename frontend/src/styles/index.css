@@ -936,50 +936,150 @@ body {
   line-height: 1.6;
 }
 
-/* Dải Marquee Vô Tận Tràn Viền */
-.marquee-album-container {
+/* ============================================================
+   FILM STRIP CUỘN PHIM KÝ ỨC
+   ============================================================ */
+
+/* Section bọc toàn bộ (tràn viền màn hình) */
+.film-strip-section {
   width: 100vw;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
   margin-bottom: 64px;
+  /* Màu nền giấy trầm hoài niệm (vintage warm taupe/sepia) chuẩn theo ảnh mẫu */
+  background: #c5bba8;
+  position: relative;
   overflow: hidden;
-  background: rgba(240, 235, 226, 0.4);
-  padding: 24px 0;
-  border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
+  padding: 32px 0 40px;
 }
 
-.marquee-album-title {
+/* Grain/noise texture overlay để giống chất phim nhựa vintage cũ */
+.film-strip-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+  opacity: 0.45;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Header label phía trên film strip */
+.film-strip-header {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  font-size: 0.82rem;
-  color: var(--color-accent);
-  font-weight: 600;
-  margin-bottom: 16px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  gap: 10px;
+  padding: 0 24px 20px;
+  background: transparent;
+  position: relative;
+  z-index: 5;
 }
 
+.film-header-icon {
+  color: #3b3127;
+}
+
+.film-header-label {
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #2e261f;
+}
+
+.film-header-count {
+  font-family: 'Courier New', monospace;
+  font-size: 0.76rem;
+  color: rgba(50, 40, 30, 0.7);
+  letter-spacing: 0.12em;
+}
+
+/* Một dải phim đơn */
+.film-strip-band {
+  position: relative;
+  background: #000000;
+  z-index: 2;
+  margin: 14px 0;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+}
+
+/* Dải phim thứ 2 */
+.film-strip-band.film-band-2 {
+  background: #000000;
+}
+
+/* Hàng sprocket holes (lỗ đục film) */
+.film-sprocket {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 0 8px;
+  background: #141210;
+  height: 22px;
+  overflow: hidden;
+  position: relative;
+  z-index: 3;
+}
+
+.film-sprocket.top {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.film-sprocket.bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* Mỗi lỗ sprocket */
+.sprocket-hole {
+  flex-shrink: 0;
+  width: 14px;
+  height: 10px;
+  background: #050403;
+  border-radius: 3px;
+  margin: 0 7px;
+  box-shadow:
+    inset 0 1px 2px rgba(0, 0, 0, 0.8),
+    0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+/* Track ảnh giữa 2 hàng sprocket */
 .marquee-track-wrapper {
   overflow: hidden;
   width: 100%;
-  margin-bottom: 12px;
+  background: #141210;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
 }
 
+/* ★ CORE TRICK: sprocket holes là background-image của chính element đang animate.
+   Lỗ đục phim màu trắng mờ/sáng (#f0ebd8) xuyên thấu qua nền phim nhựa đen tuyền */
 .marquee-track {
   display: flex;
-  gap: 14px;
+  align-items: center;
+  gap: 6px;
   width: max-content;
+  padding: 26px 8px;
+  /* Thân cuộn phim đen tuyền bóng bẩy */
+  background-color: #0a0a0a;
+  /* Hàng lỗ sprocket chữ nhật bo góc trắng sáng ngà theo chuẩn cuộn phim 35mm */
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='24'%3E%3Crect x='8' y='4' width='20' height='14' rx='3.5' ry='3.5' fill='%23ede6d4' opacity='0.9'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='24'%3E%3Crect x='8' y='6' width='20' height='14' rx='3.5' ry='3.5' fill='%23ede6d4' opacity='0.9'/%3E%3C/svg%3E");
+  background-position: 0 0, 0 100%;
+  background-size: 36px 24px, 36px 24px;
+  background-repeat: repeat-x, repeat-x;
 }
 
 .marquee-track.track-left {
-  animation: scrollLeft 45s linear infinite;
+  animation: scrollLeft 50s linear infinite;
 }
 
 .marquee-track.track-right {
-  animation: scrollRight 45s linear infinite;
+  animation: scrollRight 50s linear infinite;
 }
 
 .marquee-track:hover {
@@ -996,28 +1096,60 @@ body {
   100% { transform: translateX(0); }
 }
 
+/* Frame ảnh trong phim */
 .marquee-item {
-  width: 190px;
-  height: 130px;
-  border-radius: 12px;
-  overflow: hidden;
-  cursor: pointer;
   flex-shrink: 0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(194, 155, 56, 0.25);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+  position: relative;
 }
 
-.marquee-item:hover {
-  transform: scale(1.06) translateY(-4px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+.marquee-item.film-frame {
+  width: 180px;
+  height: 120px;
+  border-radius: 4px;
+  overflow: hidden;
+  /* Viền trắng vàng óng sang trọng tạo đường rãnh ngăn cách rõ giữa các tấm phim */
+  border-left: 2px solid rgba(245, 230, 180, 0.45);
+  border-right: 2px solid rgba(245, 230, 180, 0.45);
+  outline: 1.5px solid rgba(194, 155, 56, 0.35);
+  outline-offset: -1.5px;
+  background: #1a1715;
+  margin: 0 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  transition: transform 0.25s ease, filter 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  filter: saturate(0.9) brightness(0.95);
 }
 
-.marquee-item img {
+.marquee-item.film-frame:hover {
+  transform: scale(1.07) translateY(-3px);
+  filter: saturate(1.05) brightness(1.05);
+  border-left-color: #ffd875;
+  border-right-color: #ffd875;
+  outline-color: #ffd875;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5), 0 0 12px rgba(255, 216, 117, 0.4);
+  z-index: 10;
+}
+
+.marquee-item.film-frame img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
+
+/* Số frame phim (kiểu số hiệu cuộn phim) */
+.film-frame-number {
+  position: absolute;
+  bottom: 4px;
+  right: 5px;
+  font-family: 'Courier New', monospace;
+  font-size: 9px;
+  color: rgba(255, 240, 180, 0.5);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  pointer-events: none;
+}
+
 
 /* Lưới Ảnh Khung Vòm & Polaroid (Featured Moments) */
 .floating-arch-container {
@@ -1899,7 +2031,52 @@ body {
   margin-bottom: 8px;
 }
 
+
 .footer-copyright {
   font-size: 0.8rem;
   color: var(--color-ink-muted);
 }
+
+/* ============================================================
+   14. LIGHTBOX — HIỂN THỊ ẢNH NÉT TOÀN MÀN HÌNH
+   ============================================================ */
+
+/* Cho phép scroll bên trong lightbox image wrap trên mobile */
+@media (max-width: 768px) {
+  .lightbox-overlay {
+    padding: 12px;
+    align-items: flex-start;
+    overflow-y: auto;
+  }
+
+  .lightbox-content {
+    margin-top: auto;
+    margin-bottom: auto;
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .lightbox-image-wrap {
+    overflow: visible;
+    border-radius: 8px;
+  }
+
+  .lightbox-img {
+    max-height: 70vh;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+}
+
+/* Desktop: giữ max-height hợp lý và object-fit: contain để không crop ảnh gốc */
+@media (min-width: 769px) {
+  .lightbox-img {
+    max-height: 80vh;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+  }
+}
+
