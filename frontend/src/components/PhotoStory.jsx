@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import galleryImages from '../data/galleryImages.js';
 import LightboxModal from './LightboxModal.jsx';
 import { Sparkles, Heart, Eye } from 'lucide-react';
@@ -112,7 +112,7 @@ export default function PhotoStory() {
         <div className="film-strip-header">
           <Sparkles size={16} strokeWidth={1.8} className="film-header-icon" />
           <span className="film-header-label">Cuộn phim ký ức</span>
-          <span className="film-header-count">31 khoảnh khắc đáng nhớ</span>
+          <span className="film-header-count">khoảnh khắc đáng nhớ</span>
         </div>
 
         {/* Dải phim 1 — cuộn trái */}
