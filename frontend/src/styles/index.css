@@ -970,31 +970,57 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  padding: 0 24px 20px;
+  gap: 8px;
+  padding: 0 16px 18px;
   background: transparent;
   position: relative;
   z-index: 5;
+  flex-wrap: wrap;
+  text-align: center;
 }
 
 .film-header-icon {
-  color: #3b3127;
+  color: #5c4832;
+  flex-shrink: 0;
 }
 
 .film-header-label {
-  font-family: 'Courier New', monospace;
-  font-size: 0.85rem;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
   font-weight: 700;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #2e261f;
+  color: #241d17;
+  white-space: nowrap;
 }
 
 .film-header-count {
-  font-family: 'Courier New', monospace;
-  font-size: 0.76rem;
-  color: rgba(50, 40, 30, 0.7);
-  letter-spacing: 0.12em;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #635240;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+.film-header-count::before {
+  content: '•';
+  margin-right: 8px;
+  color: #8c7358;
+}
+
+@media (max-width: 480px) {
+  .film-strip-header {
+    gap: 6px;
+    padding: 0 12px 14px;
+  }
+  .film-header-label {
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+  }
+  .film-header-count {
+    font-size: 0.74rem;
+  }
 }
 
 /* Một dải phim đơn */
