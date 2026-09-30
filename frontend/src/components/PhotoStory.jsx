@@ -45,7 +45,7 @@ const FEATURED_MOMENTS = [
     shape: 'rounded-shape',
   },
   {
-    imageIndex: 0, // gallery-01
+    imageIndex: 31, // gallery-32
     tag: 'Khởi đầu',
     title: 'Dấu Ấn Tuổi 18',
     caption: 'Từ những bước chân đầu tiên xây dựng lý tưởng, khát vọng bằng sự nhiệt huyết của tuổi trẻ',

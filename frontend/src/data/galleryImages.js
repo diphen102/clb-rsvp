@@ -31,11 +31,12 @@ import g28 from '../assets/gallery/gallery-28.jpg';
 import g29 from '../assets/gallery/gallery-29.jpg';
 import g30 from '../assets/gallery/gallery-30.jpg';
 import g31 from '../assets/gallery/gallery-31.jpg';
+import g32 from '../assets/gallery/gallery-32.jpg';
 
 const galleryImages = [
   g01, g02, g03, g04, g05, g06, g07, g08, g09, g10, g11, g12, g13,
   g14, g15, g16, g17, g18, g19, g20, g21, g22, g23, g24, g25, g26,
-  g27, g28, g29, g30, g31,
-].map((src) => ({ src, alt: 'Hoạt động CLB Sinh Nhật Hồng Tuổi 18' }));
+  g27, g28, g29, g30, g31, g32
+].map((src) => ({ src, alt: 'Hoạt động CLB Sinh Nhật Hồng Tuổi 18 - Hiến máu cứu người' }));
 
 export default galleryImages;
