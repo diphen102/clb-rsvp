@@ -63,7 +63,7 @@ const FEATURED_MOMENTS = [
   {
     imageIndex: 39, // g05: Ngày hội hiến máu — group lớn ngoài trời, banner CLB Sinh Nhật Hồng Tuổi 18
     tag: 'Tự hào',
-    title: 'Hành Trình Gần 20 Năm Cống Hiến',
+    title: 'Kỷ Niệm Hành Trình 20 Năm Cống Hiến',
     caption: 'Trở thành một cánh hoa rực rỡ, cùng nhau ghép nên bức ảnh kỷ niệm 20 năm — đánh dấu hành trình yêu thương và cống hiến trọn vẹn của Sinh Nhật Hồng.',
     tilt: 'tilt-right',
     shape: 'rounded-shape',
