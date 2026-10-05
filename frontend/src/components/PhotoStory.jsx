@@ -1,11 +1,11 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import galleryImages from '../data/galleryImages.js';
 import LightboxModal from './LightboxModal.jsx';
 import { Sparkles, Heart, Eye } from 'lucide-react';
 
 const FEATURED_MOMENTS = [
   {
-    imageIndex: 26, // gallery-27: Lễ kỷ niệm 18 tuổi
+    imageIndex: 33, // g27: Lễ kỷ niệm 19 năm CLB — tập thể lớn trong hội trường, banner "Happy Birthday 19"
     tag: 'Dấu ấn',
     title: 'Lễ Kỷ Niệm Truyền Thống',
     caption: 'Khoảnh khắc thắp nến và tiếp lửa nhiệt huyết tuổi 19',
@@ -13,7 +13,7 @@ const FEATURED_MOMENTS = [
     shape: 'arch-shape',
   },
   {
-    imageIndex: 29, // gallery-30: Ngày hội Hiến máu
+    imageIndex: 36, // g30: Ngày hội hiến máu tình nguyện — group ngoài trời, áo đoàn xanh + CLB trắng đỏ
     tag: 'Sứ mệnh',
     title: 'Mỗi Giọt Máu Trao Đi',
     caption: 'Là một lần nữa mang đến những hy vọng sống, thêm những cuộc đời được tiếp nối',
@@ -21,31 +21,31 @@ const FEATURED_MOMENTS = [
     shape: 'rounded-shape',
   },
   {
-    imageIndex: 27, // gallery-28: Xuân gắn kết
-    tag: 'Thiện nguyện',
-    title: 'Xuân Gắn Kết - Tết Sẻ Chia',
-    caption: 'Hành trình mang hơi ấm của những trái tim giàu tình thương đến với các mệ các bà; đến với các em nhỏ ở điểm trường vùng cao',
+    imageIndex: 2, // g33: Ngày hội hiến máu 12/03/2015 — vintage banner group photo
+    tag: 'Ký ức 2015',
+    title: 'Ký Ức Một Thập Kỷ',
+    caption: 'Ngày hội hiến máu 2015 tại Hội trường A1 — những ngọn lửa nhiệt huyết tiên phong thắp sáng hành trình nhân ái',
     tilt: 'tilt-left',
-    shape: 'arch-shape',
+    shape: 'polaroid-shape',
   },
   {
-    imageIndex: 30, // gallery-31: Trẻ thơ
+    imageIndex: 37, // g31: Kết Nối Trái Tim Trẻ Thơ — ảnh với trẻ em tại mái ấm
     tag: 'Đồng hành',
     title: 'Kết Nối Trái Tim Trẻ Thơ',
-    caption: 'Đồng hành là sự gắn bó lâu dài để trao đi những hơi ấm, vun đắp, tiếp nối sẻ chia, mang đến những ý nghĩa mới',
+    caption: 'Tay trao tay — từng nụ cười trẻ thơ là động lực để Giọt Hồng tiếp tục sứ mệnh yêu thương và đồng hành',
     tilt: 'tilt-right',
     shape: 'polaroid-shape',
   },
   {
-    imageIndex: 28, // gallery-29: Trao quà
-    tag: 'Yêu thương',
-    title: 'Nụ Cười Trẻ Thơ',
-    caption: 'Những phần quà nghĩa tình dành tặng các em nhỏ thân thương',
+    imageIndex: 34, // g28: Xuân Gắn Kết - Tết Sẻ Chia — ảnh group trước banner tại trường TH Lê Quang Bình
+    tag: 'Thiện nguyện',
+    title: 'Xuân Gắn Kết — Tết Sẻ Chia',
+    caption: 'Hành trình mang hơi ấm của những trái tim giàu tình thương đến với các mệ các bà; đến với các em nhỏ ở điểm trường vùng cao',
     tilt: 'tilt-left',
     shape: 'rounded-shape',
   },
   {
-    imageIndex: 31, // gallery-32
+    imageIndex: 38, // g29: Ngày hội hiến máu nhân đạo — group lớn ngoài trời, cầm bảng nhóm máu
     tag: 'Khởi đầu',
     title: 'Dấu Ấn Tuổi 18',
     caption: 'Từ những bước chân đầu tiên xây dựng lý tưởng, khát vọng bằng sự nhiệt huyết của tuổi trẻ',
@@ -53,28 +53,29 @@ const FEATURED_MOMENTS = [
     shape: 'arch-shape',
   },
   {
-    imageIndex: 4, // gallery-05
-    tag: 'Gắn kết',
-    title: 'Mái Nhà Chung Giọt Hồng',
-    caption: 'Mái nhà chung giọt hồng - Nơi những con tim hòa vào nhịp đập chung của sự yêu thương cùng nhau viết tiếp những hành trình mới',
+    imageIndex: 24, // g39: Ngày hội hiến máu 06/03/2019 — vintage outdoor, cầm banner ngoài cổng
+    tag: 'Hành trình 2019',
+    title: 'Ngày Hội Giọt Hồng Nhân Đạo',
+    caption: 'Sắc cờ đỏ rực rỡ và nụ cười tình nguyện viên trước Hội trường A1 Đại học Khoa học Huế — hành trình chưa bao giờ dừng lại',
     tilt: 'tilt-left',
-    shape: 'polaroid-shape',
+    shape: 'arch-shape',
   },
   {
-    imageIndex: 11, // gallery-12
+    imageIndex: 39, // g05: Ngày hội hiến máu — group lớn ngoài trời, banner CLB Sinh Nhật Hồng Tuổi 18
     tag: 'Tự hào',
-    title: 'Tiếp Nối Ngọn Lửa 20 Năm',
-    caption: 'Hai thập kỉ cống hiến, lan tỏa tinh thần nhân văn CLB đã và đang tiếp tục thắp sáng ngọn lửa nhiệt huyết cho những thế hệ sau',
+    title: 'Hành Trình Gần 20 Năm Cống Hiến',
+    caption: 'Trở thành một cánh hoa rực rỡ, cùng nhau ghép nên bức ảnh kỷ niệm 20 năm — đánh dấu hành trình yêu thương và cống hiến trọn vẹn của Sinh Nhật Hồng.',
     tilt: 'tilt-right',
-    shape: 'arch-shape',
+    shape: 'rounded-shape',
   },
 ];
 
 export default function PhotoStory() {
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
 
-  const row1 = galleryImages.slice(0, 16);
-  const row2 = galleryImages.slice(16);
+  const half = Math.ceil(galleryImages.length / 2);
+  const row1 = galleryImages.slice(0, half);
+  const row2 = galleryImages.slice(half);
 
   function openLightbox(idx) {
     setSelectedImageIndex(idx);
@@ -119,17 +120,20 @@ export default function PhotoStory() {
         <div className="film-strip-band">
           <div className="marquee-track-wrapper">
             <div className="marquee-track track-left">
-              {[...row1, ...row1].map((img, idx) => (
-                <div
-                  key={`r1-${idx}`}
-                  className="marquee-item film-frame"
-                  onClick={() => openLightbox(idx % row1.length)}
-                  title="Bấm để xem ảnh đầy đủ"
-                >
-                  <img src={img.src} alt={img.alt} loading="lazy" />
-                  <div className="film-frame-number">{String((idx % row1.length) + 1).padStart(2, '0')}</div>
-                </div>
-              ))}
+              {[...row1, ...row1].map((img, idx) => {
+                const originalIdx = idx % row1.length;
+                return (
+                  <div
+                    key={`r1-${idx}`}
+                    className="marquee-item film-frame"
+                    onClick={() => openLightbox(originalIdx)}
+                    title="Bấm để xem ảnh đầy đủ"
+                  >
+                    <img src={img.src} alt={img.alt} loading="lazy" />
+                    <div className="film-frame-number">{String(originalIdx + 1).padStart(2, '0')}</div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -138,17 +142,20 @@ export default function PhotoStory() {
         <div className="film-strip-band film-band-2">
           <div className="marquee-track-wrapper">
             <div className="marquee-track track-right">
-              {[...row2, ...row2].map((img, idx) => (
-                <div
-                  key={`r2-${idx}`}
-                  className="marquee-item film-frame"
-                  onClick={() => openLightbox(16 + (idx % row2.length))}
-                  title="Bấm để xem ảnh đầy đủ"
-                >
-                  <img src={img.src} alt={img.alt} loading="lazy" />
-                  <div className="film-frame-number">{String(16 + (idx % row2.length) + 1).padStart(2, '0')}</div>
-                </div>
-              ))}
+              {[...row2, ...row2].map((img, idx) => {
+                const originalIdx = half + (idx % row2.length);
+                return (
+                  <div
+                    key={`r2-${idx}`}
+                    className="marquee-item film-frame"
+                    onClick={() => openLightbox(originalIdx)}
+                    title="Bấm để xem ảnh đầy đủ"
+                  >
+                    <img src={img.src} alt={img.alt} loading="lazy" />
+                    <div className="film-frame-number">{String(originalIdx + 1).padStart(2, '0')}</div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>

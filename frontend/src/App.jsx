@@ -81,7 +81,7 @@ export default function App() {
                   </div>
                   <div className="info-text-box">
                     <span className="info-label">Địa điểm trang trọng</span>
-                    <strong className="info-value">Trường ĐH Khoa Học - ĐH Huế</strong>
+                    <strong className="info-value">Nam Châu Hội Quán</strong>
                   </div>
                 </div>
               </div>

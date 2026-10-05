@@ -32,11 +32,22 @@ import g29 from '../assets/gallery/gallery-29.jpg';
 import g30 from '../assets/gallery/gallery-30.jpg';
 import g31 from '../assets/gallery/gallery-31.jpg';
 import g32 from '../assets/gallery/gallery-32.jpg';
+import g33 from '../assets/gallery/gallery-33.jpg';
+import g34 from '../assets/gallery/gallery-34.jpg';
+import g35 from '../assets/gallery/gallery-35.jpg';
+import g36 from '../assets/gallery/gallery-36.jpg';
+import g37 from '../assets/gallery/gallery-37.jpg';
+import g38 from '../assets/gallery/gallery-38.jpg';
+import g39 from '../assets/gallery/gallery-39.jpg';
+import g40 from '../assets/gallery/gallery-40.jpg';
 
+
+// Trộn lẫn các bức ảnh hoài niệm lịch sử (g33 - g39) vào dòng chảy ký ức
 const galleryImages = [
-  g01, g02, g03, g04, g05, g06, g07, g08, g09, g10, g11, g12, g13,
-  g14, g15, g16, g17, g18, g19, g20, g21, g22, g23, g24, g25, g26,
-  g27, g28, g29, g30, g31, g32
+  g01, g02, g33, g03, g04, g34, g05, g06, g35, g07, g08, g09, g36,
+  g10, g11, g12, g37, g13, g14, g15, g38, g16, g17, g18, g39, g19,
+  g20, g21, g22, g23, g24, g25, g26, g27, g28, g29, g30, g31, g32, g40
 ].map((src) => ({ src, alt: 'Hoạt động CLB Sinh Nhật Hồng Tuổi 18 - Hiến máu cứu người' }));
 
 export default galleryImages;
+

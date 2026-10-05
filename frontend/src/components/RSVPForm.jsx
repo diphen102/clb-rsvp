@@ -127,7 +127,7 @@ export default function RSVPForm({ onSuccess }) {
             </div>
             <div className="highlight-row">
               <MapPin size={16} />
-              <span>Hội trường Trường ĐH Khoa Học - ĐH Huế</span>
+              <span>Nam Châu Hội Quán - 04 Kim Long/07 Vạn Xuân, TP.Huế</span>
             </div>
           </div>
 
