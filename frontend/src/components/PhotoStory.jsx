@@ -5,7 +5,7 @@ import { Sparkles, Heart, Eye } from 'lucide-react';
 
 const FEATURED_MOMENTS = [
   {
-    imageIndex: 33, // g27: Lễ kỷ niệm 19 năm CLB — tập thể lớn trong hội trường, banner "Happy Birthday 19"
+    imageIndex: 33, // g27: Lễ kỷ niệm 19 năm CLB - tập thể lớn trong hội trường, banner "Happy Birthday 19"
     tag: 'Dấu ấn',
     title: 'Lễ Kỷ Niệm Truyền Thống',
     caption: 'Khoảnh khắc thắp nến và tiếp lửa nhiệt huyết tuổi 19',
@@ -13,7 +13,7 @@ const FEATURED_MOMENTS = [
     shape: 'arch-shape',
   },
   {
-    imageIndex: 36, // g30: Ngày hội hiến máu tình nguyện — group ngoài trời, áo đoàn xanh + CLB trắng đỏ
+    imageIndex: 36, // g30: Ngày hội hiến máu tình nguyện - group ngoài trời, áo đoàn xanh + CLB trắng đỏ
     tag: 'Sứ mệnh',
     title: 'Mỗi Giọt Máu Trao Đi',
     caption: 'Là một lần nữa mang đến những hy vọng sống, thêm những cuộc đời được tiếp nối',
@@ -21,31 +21,31 @@ const FEATURED_MOMENTS = [
     shape: 'rounded-shape',
   },
   {
-    imageIndex: 2, // g33: Ngày hội hiến máu 12/03/2015 — vintage banner group photo
+    imageIndex: 2, // g33: Ngày hội hiến máu 12/03/2015 - vintage banner group photo
     tag: 'Ký ức 2015',
     title: 'Ký Ức Một Thập Kỷ',
-    caption: 'Ngày hội hiến máu 2015 tại Hội trường A1 — những ngọn lửa nhiệt huyết tiên phong thắp sáng hành trình nhân ái',
+    caption: 'Ngày hội hiến máu 2015 tại Hội trường A1 - những ngọn lửa nhiệt huyết tiên phong thắp sáng hành trình nhân ái',
     tilt: 'tilt-left',
     shape: 'polaroid-shape',
   },
   {
-    imageIndex: 37, // g31: Kết Nối Trái Tim Trẻ Thơ — ảnh với trẻ em tại mái ấm
+    imageIndex: 37, // g31: Kết Nối Trái Tim Trẻ Thơ - ảnh với trẻ em tại mái ấm
     tag: 'Đồng hành',
     title: 'Kết Nối Trái Tim Trẻ Thơ',
-    caption: 'Tay trao tay — từng nụ cười trẻ thơ là động lực để Giọt Hồng tiếp tục sứ mệnh yêu thương và đồng hành',
+    caption: 'Tay trao tay - từng nụ cười trẻ thơ là động lực để Giọt Hồng tiếp tục sứ mệnh yêu thương và đồng hành',
     tilt: 'tilt-right',
     shape: 'polaroid-shape',
   },
   {
-    imageIndex: 34, // g28: Xuân Gắn Kết - Tết Sẻ Chia — ảnh group trước banner tại trường TH Lê Quang Bình
+    imageIndex: 34, // g28: Xuân Gắn Kết - Tết Sẻ Chia - ảnh group trước banner tại trường TH Lê Quang Bình
     tag: 'Thiện nguyện',
-    title: 'Xuân Gắn Kết — Tết Sẻ Chia',
+    title: 'Xuân Gắn Kết - Tết Sẻ Chia',
     caption: 'Hành trình mang hơi ấm của những trái tim giàu tình thương đến với các mệ các bà; đến với các em nhỏ ở điểm trường vùng cao',
     tilt: 'tilt-left',
     shape: 'rounded-shape',
   },
   {
-    imageIndex: 38, // g29: Ngày hội hiến máu nhân đạo — group lớn ngoài trời, cầm bảng nhóm máu
+    imageIndex: 38, // g29: Ngày hội hiến máu nhân đạo - group lớn ngoài trời, cầm bảng nhóm máu
     tag: 'Khởi đầu',
     title: 'Dấu Ấn Tuổi 18',
     caption: 'Từ những bước chân đầu tiên xây dựng lý tưởng, khát vọng bằng sự nhiệt huyết của tuổi trẻ',
@@ -53,18 +53,18 @@ const FEATURED_MOMENTS = [
     shape: 'arch-shape',
   },
   {
-    imageIndex: 24, // g39: Ngày hội hiến máu 06/03/2019 — vintage outdoor, cầm banner ngoài cổng
+    imageIndex: 24, // g39: Ngày hội hiến máu 06/03/2019 - vintage outdoor, cầm banner ngoài cổng
     tag: 'Hành trình 2019',
     title: 'Ngày Hội Giọt Hồng Nhân Đạo',
-    caption: 'Sắc cờ đỏ rực rỡ và nụ cười tình nguyện viên trước Hội trường A1 Đại học Khoa học Huế — hành trình chưa bao giờ dừng lại',
+    caption: 'Sắc cờ đỏ rực rỡ và nụ cười tình nguyện viên trước Hội trường A1 Đại học Khoa học Huế - hành trình chưa bao giờ dừng lại',
     tilt: 'tilt-left',
     shape: 'arch-shape',
   },
   {
-    imageIndex: 39, // g05: Ngày hội hiến máu — group lớn ngoài trời, banner CLB Sinh Nhật Hồng Tuổi 18
+    imageIndex: 39, // g05: Ngày hội hiến máu - group lớn ngoài trời, banner CLB Sinh Nhật Hồng Tuổi 18
     tag: 'Tự hào',
     title: 'Kỷ Niệm Hành Trình 20 Năm Cống Hiến',
-    caption: 'Trở thành một cánh hoa rực rỡ, cùng nhau ghép nên bức ảnh kỷ niệm 20 năm — đánh dấu hành trình yêu thương và cống hiến trọn vẹn của Sinh Nhật Hồng.',
+    caption: 'Trở thành một cánh hoa rực rỡ, cùng nhau ghép nên bức ảnh kỷ niệm 20 năm - đánh dấu hành trình yêu thương và cống hiến trọn vẹn của Sinh Nhật Hồng.',
     tilt: 'tilt-right',
     shape: 'rounded-shape',
   },
@@ -107,7 +107,7 @@ export default function PhotoStory() {
         </p>
       </div>
 
-      {/* Cuộn Phim Ký Ức — Film Strip */}
+      {/* Cuộn Phim Ký Ức - Film Strip */}
       <div className="film-strip-section">
         {/* Header */}
         <div className="film-strip-header">
@@ -116,7 +116,7 @@ export default function PhotoStory() {
           <span className="film-header-count">khoảnh khắc đáng nhớ</span>
         </div>
 
-        {/* Dải phim 1 — cuộn trái */}
+        {/* Dải phim 1 - cuộn trái */}
         <div className="film-strip-band">
           <div className="marquee-track-wrapper">
             <div className="marquee-track track-left">
@@ -138,7 +138,7 @@ export default function PhotoStory() {
           </div>
         </div>
 
-        {/* Dải phim 2 — cuộn phải */}
+        {/* Dải phim 2 - cuộn phải */}
         <div className="film-strip-band film-band-2">
           <div className="marquee-track-wrapper">
             <div className="marquee-track track-right">
