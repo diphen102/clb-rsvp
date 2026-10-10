@@ -28,12 +28,14 @@ export default function LightboxModal({ image, total, currentIndex, onClose, onP
         )}
 
         <div className="lightbox-image-wrap">
-          <img
-            src={image.src}
-            alt={image.alt || 'Khoảnh khắc CLB'}
-            className="lightbox-img"
-            style={{ touchAction: 'pinch-zoom' }}
-          />
+          <div className="lightbox-img-container">
+            <img
+              src={image.src}
+              alt={image.alt || 'Khoảnh khắc CLB'}
+              className="lightbox-img"
+              style={{ touchAction: 'pinch-zoom' }}
+            />
+          </div>
 
           <div className="lightbox-info">
             <p className="lightbox-caption">{image.caption || image.alt}</p>
